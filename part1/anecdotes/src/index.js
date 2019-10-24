@@ -28,7 +28,6 @@ const App = (props) => {
     const copy = [...votes]
     copy[selected] += 1
     setVotes(copy)
-    // setMaxIndex(votes.reduce((iMax, x, i, arr) => x > arr[iMax] ? i : iMax, 0))
   }
 
   // try changing array to object for extra challenge
