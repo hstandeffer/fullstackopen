@@ -1,5 +1,5 @@
 {
-  "name": "courseinfo",
+  "name": "phonebook",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -29,8 +29,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "json-server": "^0.15.1"
   }
 }
