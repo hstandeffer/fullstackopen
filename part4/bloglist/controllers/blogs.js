@@ -66,20 +66,20 @@ blogRouter.delete('/:id', async (request, response) => {
   return response.status(401).json({ error: 'invalid permission to delete' })
 })
 
-blogRouter.put('/api/blogs/:id', async (request, response) => {
+blogRouter.put('/:id', async (request, response) => {
   const id = request.params.id
   const body = request.body
 
   const blog = new Blog({
+    user: body.user,
     title: body.name,
     author: body.author,
     url: body.url,
     likes: body.likes
   })
 
-  await Blog.findByIdAndUpdate(id, blog, { new: true })
-
-  response.json(blog.toJSON())
+  const newBlog = await Blog.findByIdAndUpdate(id, { likes: blog.likes + 1}, { new: true })
+  response.json(newBlog.toJSON())
 })
 
 module.exports = blogRouter
